@@ -17,7 +17,10 @@ public class TextController : MonoBehaviour
 	void Update ()
 	{
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			text.text = "Space key pressed";
+			text.text = "You are in a prission cell, and you want to escape. There are "+
+				"some dirty sheets on the bed, a mirror on the wall, and the door " +
+			    "is locked from the ourside.\n\n" +
+					"Press V to view Sheets, M to view Mirror and L to View Lock";
 		}
 
 	}
