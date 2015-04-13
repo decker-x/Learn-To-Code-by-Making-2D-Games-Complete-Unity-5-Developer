@@ -19,7 +19,6 @@ public class NumberWizards : MonoBehaviour
 	{
 		max = 1000;
 		min = 1;
-		guess = 500;
 		print ("========================");
 		print ("Welcome to Number Wizard");
 		print ("Pick a number in your head, but don't tell me!");
@@ -27,8 +26,8 @@ public class NumberWizards : MonoBehaviour
 		print ("The lowest number you can pick is " + min);
 		print ("Is the number higher or lower than " + guess + "?");
 		print ("Up = higher, down = lower, return = equal");
-		max = max + 1;
 		guessText.text = guess.ToString ();
+		NextGuess ();
 	}
 	// Update is called once per frame
 	void Update ()
@@ -65,6 +64,7 @@ public class NumberWizards : MonoBehaviour
 	void NextGuess ()
 	{
 		guess = (max + min) / 2;
+		guess = Random.Range (min, max + 1);
 		print ("Higher or lower than " + guess);
 		print ("Up = higher, down = lower, return = equal");
 		guessText.text = guess.ToString ();
