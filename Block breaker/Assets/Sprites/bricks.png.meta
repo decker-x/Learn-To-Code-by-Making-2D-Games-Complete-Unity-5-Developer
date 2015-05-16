@@ -5,7 +5,8 @@ TextureImporter:
     21300000: 0 hits
     21300002: left
     21300004: right
-    21300006: 2 hit
+    21300006: 1 hits
+    21300008: 2 hits
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -77,13 +78,23 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 2 hit
+    - name: 1 hits
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 42
+        width: 128
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 2 hits
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 128
-        height: 82
+        height: 41
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
