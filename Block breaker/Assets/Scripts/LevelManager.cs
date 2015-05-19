@@ -20,4 +20,10 @@ public class LevelManager : MonoBehaviour
 	{
 		Application.LoadLevel(Application.loadedLevel + 1);
 	}
+
+	public void BrickDestroyed(){
+		if (Brick.breakcableCount <= 0) {
+			LoadNextLevel ();
+		}
+	}
 }

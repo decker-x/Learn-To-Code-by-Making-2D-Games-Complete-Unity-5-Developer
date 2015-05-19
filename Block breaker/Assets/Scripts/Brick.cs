@@ -5,12 +5,19 @@ public class Brick : MonoBehaviour {
 
 
 	public Sprite[] hitSprites;
-
+	public static int breakcableCount=0;
 
 	private int timesHit;
 	private LevelManager levelManager;
+	private bool isBreakable;
 	// Use this for initialization
 	void Start () {
+		isBreakable = (this.tag == "Breakable");
+		//Keep track of breakable bricks
+		if (isBreakable) {
+			breakcableCount++;	
+			print (breakcableCount);
+		}
 		timesHit = 0;
 		levelManager = GameObject.FindObjectOfType<LevelManager> ();
 	}
@@ -31,6 +38,9 @@ public class Brick : MonoBehaviour {
 		timesHit++ ;
 		int maxHits = hitSprites.Length + 1;
 		if (timesHit >= maxHits) {
+			breakcableCount--;
+			print (breakcableCount);
+			levelManager.BrickDestroyed();
 			Destroy (gameObject);
 		} else {
 			LoadSprites();
