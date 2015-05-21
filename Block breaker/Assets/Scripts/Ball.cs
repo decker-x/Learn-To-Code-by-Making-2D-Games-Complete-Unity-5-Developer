@@ -28,4 +28,11 @@ public class Ball : MonoBehaviour
 			}
 		}
 	}
+
+	void OnCollisionEnter2D (Collision2D collision){
+		print ("Ball hit");
+		if (hasStarted) {
+			audio.Play ();
+		}
+	}
 }

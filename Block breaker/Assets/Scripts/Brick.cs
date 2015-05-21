@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Brick : MonoBehaviour {
 
-
+	public AudioClip crack;
 	public Sprite[] hitSprites;
 	public static int breakcableCount=0;
 
@@ -28,6 +28,7 @@ public class Brick : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
+		//AudioSource.PlayClipAtPoint (crack, transform.position);
 		bool isBreakable = (this.tag == "Breakable");
 		if (isBreakable) {
 			HandleHits ();	
