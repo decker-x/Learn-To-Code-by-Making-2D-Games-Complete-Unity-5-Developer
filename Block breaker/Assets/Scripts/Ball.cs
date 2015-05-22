@@ -31,8 +31,10 @@ public class Ball : MonoBehaviour
 
 	void OnCollisionEnter2D (Collision2D collision){
 		print ("Ball hit");
+		Vector2 tweak = new Vector2 (Random.Range(0f,02f),Random.Range(0f,02f));
 		if (hasStarted) {
 			audio.Play ();
+			rigidbody2D.velocity += tweak;
 		}
 	}
 }
