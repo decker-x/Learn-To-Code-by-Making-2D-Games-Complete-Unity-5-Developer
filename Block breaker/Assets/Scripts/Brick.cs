@@ -28,11 +28,13 @@ public class Brick : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
-		//AudioSource.PlayClipAtPoint (crack, transform.position);
+
 		bool isBreakable = (this.tag == "Breakable");
+		AudioSource.PlayClipAtPoint (crack, transform.position,0.01f);
 		if (isBreakable) {
 			HandleHits ();	
 		}
+
 	}
 
 	void HandleHits(){

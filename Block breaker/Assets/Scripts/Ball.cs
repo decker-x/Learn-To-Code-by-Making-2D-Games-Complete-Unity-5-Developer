@@ -11,6 +11,7 @@ public class Ball : MonoBehaviour
 	{
 		paddle = GameObject.FindObjectOfType<Paddle>();
 		paddleToBallVector = this.transform.position - paddle.transform.position;
+		audio.Play ();
 		print (paddleToBallVector.y);
 	}
 	
