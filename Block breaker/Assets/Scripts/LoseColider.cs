@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LooseColider : MonoBehaviour
+public class LoseColider : MonoBehaviour
 {
 	private LevelManager levelManager;
 
