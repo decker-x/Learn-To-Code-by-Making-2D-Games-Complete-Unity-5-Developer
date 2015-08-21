@@ -5,9 +5,9 @@ public class EnemySpawner : MonoBehaviour
 {
 
 	public GameObject enemyPrefab;
-	public float width = 14.28f;
-	public float heigth = 6.63f;
-	public float speed = 5;
+	public float width = 10f;
+	public float heigth = 5f;
+	public float speed = 5f;
 	private bool movingRight = true;
 	private float xmax;
 	private float xmin;
@@ -21,6 +21,11 @@ public class EnemySpawner : MonoBehaviour
 		xmax = rightBoundary.x;
 		xmin = leftBoundary.x;
 		Camera.main.ViewportToWorldPoint (new Vector3 (1, 0, distanceToCamera));
+		SpawnEnemies ();
+	}
+
+	void SpawnEnemies(){
+
 		foreach (Transform child in transform) {
 			GameObject enemy = Instantiate (enemyPrefab, child.transform.position, Quaternion.identity) as GameObject;
 			enemy.transform.parent = child;
@@ -40,15 +45,25 @@ public class EnemySpawner : MonoBehaviour
 		} else {
 			transform.position += Vector3.left * speed * Time.deltaTime;
 		}
+//Check if the formation is going outside the playspace...
 		float rightEdgeOfFormation = transform.position.x + (0.5f * width);
 		float leftEdgeOfFormation = transform.position.x - (0.5f * width);
-		if (leftEdgeOfFormation < xmin) {
-			movingRight = true;
-		} else {
-			if (rightEdgeOfFormation > xmax) {
-				movingRight = false;
-			}
+		if (leftEdgeOfFormation < xmin || rightEdgeOfFormation > xmax) {
+			movingRight = !movingRight;
+		} 
 
+		if (AllMembersDead ()) {
+			SpawnEnemies();
+			Debug.Log ("Empty formation");
 		}
+	}
+
+	bool AllMembersDead(){
+		foreach (Transform childPositionGameObject in transform) {
+			if (childPositionGameObject.childCount > 0 ){
+				return false;
+			}
+		}
+		return true;
 	}
 }
