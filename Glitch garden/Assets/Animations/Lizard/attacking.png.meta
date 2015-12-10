@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 165dd53b3570f3f4e857b2df87e65110
+guid: f2eeb5cb5ae204f6bb601154a93f60dd
 TextureImporter:
   fileIDToRecycleName:
     21300000: attacking_0
@@ -113,7 +113,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 4096
   textureSettings:
-    filterMode: -1
+    filterMode: 1
     aniso: 16
     mipBias: -1
     wrapMode: 1
